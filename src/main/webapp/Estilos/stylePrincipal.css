@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7/11/2017, 10:59:42 PM
+    Author     : erick
+*/
+body{
+    background-image: url("../Imagenes/Principal/Fondo.png");
+}
+
+#contenido{
+    width: 100%;    
+    height: 100%;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
+#ImgData {
+float: left;
+margin: 15px;
+-webkit-transition: margin 0.3s ease-out;
+-moz-transition: margin 0.3s ease-out;
+-ms-transition: margin 0.3s ease-out;
+transition: margin 0.3s ease-out;
+}
+
+#efecto img:hover {
+    margin-top: 10px;    
+}
+
+#efecto{
+    position: relative;
+}
+
+#efecto img{
+    position: absolute;
+}
+
+.Margen{
+    margin-top: 10%;
+}
+

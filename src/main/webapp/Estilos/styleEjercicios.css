@@ -1,0 +1,98 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/11/2017, 08:37:57 PM
+    Author     : Alan
+*/
+.pad{
+    padding: 5%;
+}
+.pad2{
+    padding: 2%;
+}
+
+#letras{
+    font-weight: bold;
+    color: white;
+    font-size: medium;    
+}
+#resp, #resp1, #resp2, #resp3, #punto, #final{
+    visibility: collapse;
+}
+#estrella{
+    position: relative;
+    right: 530%;
+}
+#puntaje{
+    border: 1px solid white;
+    border-radius: 7px;
+    height: 35px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: monospace;
+}
+#imgEjercicio{
+    border: 2px solid #ff9900;
+    border-radius: 7px;
+    height: 250px;
+    width: 70%;
+    margin-left: 15%;
+}
+#entrada{
+    text-align: center;
+}
+.imgRespuesta{
+    height: 175px;
+    width: 100%;
+}
+.respuesta{
+    width: 100%;
+    font-weight: bold;
+    font-size: x-large;
+}
+.encabezado{
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    color: rgb(251, 174, 60);
+    font-size: x-large;
+}
+
+.encabezado1{
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    font-size: medium;
+}
+
+#borde1:focus{
+    border: solid black;
+}
+#borde2:focus{
+    border: solid black;
+}
+#borde3:focus{
+    border: solid black;
+}
+
+.center{
+    text-align: center;
+    padding-left:  125px;
+}
+
+.center2{
+    text-align: center;
+    padding-left:  30px;
+}
+
+.res{
+    color: blue;
+    font-size: 500%;
+    font-weight: bold;
+}

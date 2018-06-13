@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/11/2017, 06:59:17 PM
+    Author     : erick
+*/
+
+body{
+    background-image: url("../Imagenes/Principal/Fondo.png");
+}
+
+#textIn{
+    background-color: white;
+    border-radius: 10px;    
+}
+
+.letras{
+    font-weight: bold;
+    color: rgb(251, 174, 60);
+    font-size: large; 
+}
+
+.msgError{
+    font-weight: bold;
+    color: red;
+    font-size: large; 
+}
+
+.bordes{
+    /*border-color:rgb(251, 174, 60);*/
+    border:1px solid rgb(251, 174, 60);
+    border-radius: 10px;
+    font-family: Arial; 
+    font-size: 15pt;
+    height: 45px;
+    width: 100%;
+}
+
+#ImgData {
+float: left;
+margin: 15px;
+-webkit-transition: margin 0.3s ease-out;
+-moz-transition: margin 0.3s ease-out;
+-ms-transition: margin 0.3s ease-out;
+transition: margin 0.3s ease-out;
+}
+#efecto img:hover {
+    margin-top: 10px;    
+}
+
+#imgBorder img:hover{
+    border: solid;
+}
+
+/*input:focus{
+    outline:none;
+}*/
+
+.bor{
+    /*border-color:rgb(251, 174, 60);*/
+    border:1px solid rgb(251, 174, 60);
+    border-radius: 10px;
+    font-family: Arial; 
+    font-size: 15pt;
+    height: 45px;
+    width: 100%;
+}
+
+input{
+    padding: 2%;
+}

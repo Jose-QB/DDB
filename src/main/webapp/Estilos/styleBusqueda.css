@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/11/2017, 10:46:20 PM
+    Author     : erick
+*/
+
+#letras{
+    font-weight: bold;
+    color: white;
+    font-size: medium;    
+}
+
+#letras2{
+    font-weight: bold;
+    color: rgb(251, 174, 60);
+    font-size: xx-large;    
+}
+
+.colorblue{
+    color: rgb(69, 88, 121);
+    font-weight: bold;
+    font-size: medium;    
+}
+
+.bordes{
+    /*border-color:rgb(251, 174, 60);*/
+    border:1px solid rgb(69, 88, 121);
+    border-radius: 10px;
+    font-family: Arial; 
+    font-size: 15pt;
+    height: 45px;
+}
+
+.palabra{
+    font-family: Arial; 
+    font-size: 50pt;
+    font-weight: bold;
+}
+
+input:focus{    
+    outline: none;
+}
+
+input{
+    padding: 2%;
+}
+.pad{
+    padding: 5%;
+}
+
+.pad2{
+    padding: 2%;
+}
+
+.descText{
+    font-family: Arial; 
+    font-size: xx-large;
+    
+}
