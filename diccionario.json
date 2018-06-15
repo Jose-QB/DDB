@@ -1,0 +1,69 @@
+{ "_id" : 1, "palabra" : "A", "id_tipo" : 1, "descripcion" : "La letra A del abecedario español mexicano." }
+{ "_id" : 2, "palabra" : "B", "id_tipo" : 1, "descripcion" : "La letra B del abecedario español mexicano." }
+{ "_id" : 3, "palabra" : "C", "id_tipo" : 1, "descripcion" : "La letra C del abecedario español mexicano." }
+{ "_id" : 4, "palabra" : "D", "id_tipo" : 1, "descripcion" : "La letra D del abecedario español mexicano." }
+{ "_id" : 5, "palabra" : "E", "id_tipo" : 1, "descripcion" : "La letra E del abecedario español mexicano." }
+{ "_id" : 6, "palabra" : "F", "id_tipo" : 1, "descripcion" : "La letra F del abecedario español mexicano." }
+{ "_id" : 7, "palabra" : "G", "id_tipo" : 1, "descripcion" : "La letra G del abecedario español mexicano." }
+{ "_id" : 8, "palabra" : "H", "id_tipo" : 1, "descripcion" : "La letra H del abecedario español mexicano." }
+{ "_id" : 9, "palabra" : "I", "id_tipo" : 1, "descripcion" : "La letra I del abecedario español mexicano." }
+{ "_id" : 10, "palabra" : "J", "id_tipo" : 1, "descripcion" : "La letra J del abecedario español mexicano." }
+{ "_id" : 11, "palabra" : "K", "id_tipo" : 1, "descripcion" : "La letra K del abecedario español mexicano." }
+{ "_id" : 12, "palabra" : "L", "id_tipo" : 1, "descripcion" : "La letra L del abecedario español mexicano." }
+{ "_id" : 13, "palabra" : "LL", "id_tipo" : 1, "descripcion" : "La letra LL del abecedario español mexicano." }
+{ "_id" : 14, "palabra" : "M", "id_tipo" : 1, "descripcion" : "La letra M del abecedario español mexicano." }
+{ "_id" : 15, "palabra" : "N", "id_tipo" : 1, "descripcion" : "La letra N del abecedario español mexicano." }
+{ "_id" : 16, "palabra" : "NN", "id_tipo" : 1, "descripcion" : "La letra Ñ del abecedario español mexicano." }
+{ "_id" : 17, "palabra" : "O", "id_tipo" : 1, "descripcion" : "La letra O del abecedario español mexicano." }
+{ "_id" : 18, "palabra" : "P", "id_tipo" : 1, "descripcion" : "La letra P del abecedario español mexicano." }
+{ "_id" : 19, "palabra" : "Q", "id_tipo" : 1, "descripcion" : "La letra Q del abecedario español mexicano." }
+{ "_id" : 20, "palabra" : "R", "id_tipo" : 1, "descripcion" : "La letra R del abecedario español mexicano." }
+{ "_id" : 21, "palabra" : "RR", "id_tipo" : 1, "descripcion" : "La letra RR del abecedario español mexicano." }
+{ "_id" : 22, "palabra" : "S", "id_tipo" : 1, "descripcion" : "La letra S del abecedario español mexicano." }
+{ "_id" : 23, "palabra" : "T", "id_tipo" : 1, "descripcion" : "La letra T del abecedario español mexicano." }
+{ "_id" : 24, "palabra" : "U", "id_tipo" : 1, "descripcion" : "La letra U del abecedario español mexicano." }
+{ "_id" : 25, "palabra" : "V", "id_tipo" : 1, "descripcion" : "La letra V del abecedario español mexicano." }
+{ "_id" : 26, "palabra" : "W", "id_tipo" : 1, "descripcion" : "La letra W del abecedario español mexicano." }
+{ "_id" : 27, "palabra" : "X", "id_tipo" : 1, "descripcion" : "La letra X del abecedario español mexicano." }
+{ "_id" : 28, "palabra" : "Y", "id_tipo" : 1, "descripcion" : "La letra Y del abecedario español mexicano." }
+{ "_id" : 29, "palabra" : "Z", "id_tipo" : 1, "descripcion" : "La letra Z del abecedario español mexicano." }
+{ "_id" : 30, "palabra" : "1", "id_tipo" : 2, "descripcion" : "El numero 1." }
+{ "_id" : 31, "palabra" : "2", "id_tipo" : 2, "descripcion" : "El numero 2." }
+{ "_id" : 32, "palabra" : "3", "id_tipo" : 2, "descripcion" : "El numero 3." }
+{ "_id" : 33, "palabra" : "4", "id_tipo" : 2, "descripcion" : "El numero 4." }
+{ "_id" : 34, "palabra" : "5", "id_tipo" : 2, "descripcion" : "El numero 5." }
+{ "_id" : 35, "palabra" : "6", "id_tipo" : 2, "descripcion" : "El numero 6." }
+{ "_id" : 36, "palabra" : "7", "id_tipo" : 2, "descripcion" : "El numero 7." }
+{ "_id" : 37, "palabra" : "8", "id_tipo" : 2, "descripcion" : "El numero 8." }
+{ "_id" : 38, "palabra" : "9", "id_tipo" : 2, "descripcion" : "El numero 9." }
+{ "_id" : 39, "palabra" : "10", "id_tipo" : 2, "descripcion" : "El numero 10." }
+{ "_id" : 40, "palabra" : "HOLA", "id_tipo" : 3, "descripcion" : "Expresión para saludar." }
+{ "_id" : 41, "palabra" : "ADIOS", "id_tipo" : 3, "descripcion" : "Expresión para despedirse." }
+{ "_id" : 42, "palabra" : "BUENAS NOCHES", "id_tipo" : 4, "descripcion" : "Expresión para irse a acostar." }
+{ "_id" : 43, "palabra" : "ABSURDO", "id_tipo" : 5, "descripcion" : "Contrario y opuesto a la razón." }
+{ "_id" : 44, "palabra" : "ALEGRE", "id_tipo" : 5, "descripcion" : "Denota alegría o viveza." }
+{ "_id" : 45, "palabra" : "CANSADO", "id_tipo" : 5, "descripcion" : "Manifestación de cansancio." }
+{ "_id" : 46, "palabra" : "YO", "id_tipo" : 6, "descripcion" : "Forma que designa a la persona que habla o escribe." }
+{ "_id" : 47, "palabra" : "TU", "id_tipo" : 6, "descripcion" : "Forma que designa a la persona a la que se dirige quien habla o escribe." }
+{ "_id" : 48, "palabra" : "EL", "id_tipo" : 6, "descripcion" : "Forma que designa a la persona, el animal o la cosa de los que se habla." }
+{ "_id" : 49, "palabra" : "AGUA", "id_tipo" : 7, "descripcion" : "Líquido potable transparente insipido e incoloro." }
+{ "_id" : 50, "palabra" : "COCA-COLA", "id_tipo" : 7, "descripcion" : "Gaseosa dulce con sabor a cola." }
+{ "_id" : 51, "palabra" : "ATOLE", "id_tipo" : 7, "descripcion" : "Bebida caliente de harina de maíz disuelta en agua o leche." }
+{ "_id" : 52, "palabra" : "LECHE", "id_tipo" : 7, "descripcion" : "Bebida lactea nutritiva procedente de la vaca." }
+{ "_id" : 53, "palabra" : "HUEVO", "id_tipo" : 7, "descripcion" : "Alimento procedente generalmente de gallina destinado a la alimentación." }
+{ "_id" : 54, "palabra" : "HAMBURGUESA", "id_tipo" : 7, "descripcion" : "Comida rápida popular hecha de carne picada freida dentro de un pan." }
+{ "_id" : 55, "palabra" : "MIEL", "id_tipo" : 7, "descripcion" : "Alimento de sabor dulce que es elaborado por las abejas a partir del néctar de las flores." }
+{ "_id" : 56, "palabra" : "LUNES", "id_tipo" : 7, "descripcion" : "Primer día de la semana." }
+{ "_id" : 57, "palabra" : "MARTES", "id_tipo" : 7, "descripcion" : "Segundo día de la semana." }
+{ "_id" : 58, "palabra" : "MIERCOLES", "id_tipo" : 7, "descripcion" : "Tercer día de la semana." }
+{ "_id" : 59, "palabra" : "JUEVES", "id_tipo" : 7, "descripcion" : "Cuarto día de la semana." }
+{ "_id" : 60, "palabra" : "VIERNES", "id_tipo" : 7, "descripcion" : "Quinto día de la semana." }
+{ "_id" : 61, "palabra" : "SABADO", "id_tipo" : 7, "descripcion" : "Sexto día de la semana." }
+{ "_id" : 62, "palabra" : "DOMINGO", "id_tipo" : 7, "descripcion" : "Séptimo día de la semana." }
+{ "_id" : 63, "palabra" : "HOY", "id_tipo" : 8, "descripcion" : "En este día." }
+{ "_id" : 64, "palabra" : "AYER", "id_tipo" : 8, "descripcion" : "En el día que precede inmediatamente al de hoy." }
+{ "_id" : 65, "palabra" : "MAÑANA", "id_tipo" : 8, "descripcion" : "En el día que sigue inmediatamente al de hoy." }
+{ "_id" : 66, "palabra" : "ACCIDENTE", "id_tipo" : 7, "descripcion" : "Suceso eventual o acción de que resulta daño involuntario para las personas o las cosas." }
+{ "_id" : 67, "palabra" : "AYUDAR", "id_tipo" : 9, "descripcion" : "Auxiliar o socorrer." }
+{ "_id" : 68, "palabra" : "CUIDADO", "id_tipo" : 3, "descripcion" : "Preocupacion y temor o para llamar la atención." }
+{ "_id" : 69, "palabra" : "SALUD", "id_tipo" : 7, "descripcion" : "Bien público o particular de cada uno." }

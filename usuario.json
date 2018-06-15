@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "5b1f421cc15ac3554a8eb0af" }, "nickname" : "josec186", "passwrd" : "tenedor", "id_pregunta" : 4, "respuesta" : "npe", "id_avatar" : 2, "nivel" : [ 1, 2, 3 ], "puntaje" : 15 }
