@@ -28,8 +28,10 @@
             user = request.getParameter("usr");
             password = request.getParameter("pssw");
             String consulta = "select * from usuario where nickname='" + user + "';";
-            objConn.Consultar(consulta);
-            objConnMongo.prueba(); 
+            int a=objConnMongo.getCount("usuario");
+            System.out.println(a);
+            objConn.Consultar(consulta);            
+            
             if (objConn.rs.getRow() != 0) {
                 String u = objConn.rs.getString(2);
                 String textoEncriptado = objConn.rs.getString(3);

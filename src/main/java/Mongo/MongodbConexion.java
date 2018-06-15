@@ -35,7 +35,7 @@ import org.bson.Document;
  */
 public class MongodbConexion {
 
-    private static MongoCollection<Document> collection;
+    private static MongoCollection<Document> collectionUsuarios;
 
     public MongodbConexion() {
         try {
@@ -43,13 +43,13 @@ public class MongodbConexion {
             MongoClient mongoClient = new MongoClient("192.168.1.91", 27017);
 
             // PASO 2: Conexión a la base de datos
-            MongoDatabase database = mongoClient.getDatabase("Futbol");
+            MongoDatabase database = mongoClient.getDatabase("gtmx");
             //DB db = mongoClient.getDB("Futbol");
 
             // PASO 3: Obtenemos una coleccion para trabajar con ella
-            MongoCollection<Document> collection = database.getCollection("Futbolistas");
+            MongoCollection<Document> collection = database.getCollection("usuario");
             //DBCollection collection = db.getCollection("Futbolistas");
-            this.collection = collection;
+            this.collectionUsuarios = collection;
 
             // PASO FINAL: Cerrar la conexion
             //mongoClient.close();
@@ -58,20 +58,26 @@ public class MongodbConexion {
         }
     }
 
-    public int getCount() {
-        return (int) collection.count();
+    public int getCount(String whichCollection) {
+        int number = 0;
+        switch (whichCollection) {
+            case "usuario":
+               number= (int) collectionUsuarios.count();
+                break;
+        }
+        return number;
     }
 
     public void INSERT(String query) {
-        
+
     }
 
     public void READ(String query) {
-        
+
     }
 
     public void prueba() {
-        Document myDoc = collection.find(eq("nombre", "Iker")).first();
+        Document myDoc = collectionUsuarios.find(eq("nombre", "Iker")).first();
         System.out.println(myDoc.toJson());
         /*MongoCursor<Document> cursor = collection.find().iterator();
         try {
