@@ -14,7 +14,8 @@
 <%@page import="java.util.Arrays"%>
 <%@page import="Clases.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="objConn" class="mysql.MySqlConexion"/>
+<jsp:useBean id="objConn" class="Mongo.MySqlConexion"/>
+<jsp:useBean id="objConnMongo" class="Mongo.MongodbConexion"/>
 <%@page session="true" %>
 
 <%
@@ -28,6 +29,7 @@
             password = request.getParameter("pssw");
             String consulta = "select * from usuario where nickname='" + user + "';";
             objConn.Consultar(consulta);
+            objConnMongo.prueba(); 
             if (objConn.rs.getRow() != 0) {
                 String u = objConn.rs.getString(2);
                 String textoEncriptado = objConn.rs.getString(3);
