@@ -54,122 +54,84 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <form id = "altaU" hidden="hidden">
-                        <h4>Nick-Name</h4>
-                        <input class= "form-control" id = "nickAU">
-                        <h4>Password</h4>
-                        <input class= "form-control" id = "passAU">
-                        <h4>Pregunta de seguridad</h4>
-                        <select class= "form-control" id = "pregAU">
-                            <option value = 0> Primer mascota</option>
-                            <option value = 1> Cuidad de nacimiento</option>
-                            <option value = 2> Nombre de la madre</option>
-                            <option value = 3> Comida favorita</option>
-                        </select>
-                        <h4>Respuesta</h4>
-                        <input class= "form-control" id = "respAU">
-                        <h4>Avatar</h4>
-                        <select class= "form-control" id = "avatAU">
-                            <option value = 0>Avatar 1</option>
-                            <option value = 1>Avatar 2</option>
-                            <option value = 2>Avatar 3</option>
-                            <option value = 3>Avatar 4</option>
-                            <option value = 4>Avatar 5</option>
-                            <option value = 5>Avatar 6</option>
-                        </select>
-                        <br>
-                        <button class = "btn-success form-control" type="button">Dar de alta</button>
-                    </form>
-                    <form id = "bajaU" hidden="hidden">
-                        <h4>Filtrar por:</h4>
-                        <select class="form-control" id = "filtBU" onchange="filter('filtBU')">
-                            <option value = 0>Nick-Name</option>
-                            <option value = 1>Pregunta de seguridad</option>
-                            <option value = 2>Avatar</option>
-                            <option value = 3>No filtrar</option>
-                        </select>
-                        <h4>Nick-Name</h4>
-                        <input class= "form-control" id = "nickBU">
-                        <h4>Pregunta de seguridad</h4>
-                        <select class= "form-control" id = "pregBU">
-                            <option value = 4> Seleccione pregunta</option>
-                            <option value = 0> Primer mascota</option>
-                            <option value = 1> Cuidad de nacimiento</option>
-                            <option value = 2> Nombre de la madre</option>
-                            <option value = 3> Comida favorita</option>
-                        </select>
-                        <h4>Avatar</h4>
-                        <select class= "form-control" id = "avatBU">
-                            <option value = 6>Seleccione el avatar</option>
-                            <option value = 0>Avatar 1</option>
-                            <option value = 1>Avatar 2</option>
-                            <option value = 2>Avatar 3</option>
-                            <option value = 3>Avatar 4</option>
-                            <option value = 4>Avatar 5</option>
-                            <option value = 5>Avatar 6</option>
-                        </select>
-                        <h4>Resultados</h4>
-                        <select class= "form-control" id = "resuBU"></select>
-                        <br>
-                        <button class = "btn-danger form-control" type="button" id = "consU">Dar de baja</button>
-                    </form>
-                    <form id = "cambU" hidden="hidden">
-                        <h4>Filtrar por:</h4>
-                        <select class="form-control" id = "filtCU">
-                            <option value = 0>Nick-Name</option>
-                            <option value = 1>Pregunta de seguridad</option>
-                            <option value = 2>Avatar</option>
-                            <option value = 3>No filtrar</option>
-                        </select>
-                        <h4>Nick-Name</h4>
-                        <input class= "form-control" id = "nickCUB">
-                        <h4>Pregunta de seguridad</h4>
-                        <select class= "form-control" id = "pregCUB">
-                            <option value = 0> Primer mascota</option>
-                            <option value = 1> Cuidad de nacimiento</option>
-                            <option value = 2> Nombre de la madre</option>
-                            <option value = 3> Comida favorita</option>
-                        </select>
-                        <h4>Avatar</h4>
-                        <select class= "form-control" id = "avatCUB">
-                            <option value = 0>Avatar 1</option>
-                            <option value = 1>Avatar 2</option>
-                            <option value = 2>Avatar 3</option>
-                            <option value = 3>Avatar 4</option>
-                            <option value = 4>Avatar 5</option>
-                            <option value = 5>Avatar 6</option>
-                        </select>
-                        <h4>Resultados</h4>
-                        <select class= "form-control" id = "resuCUB"></select>
-                        <br>
-                        <button class = "btn-info form-control" type="button">Ver datos</button>
-                        <br>
-                        <h4>Nick-Name</h4>
-                        <input class= "form-control" id = "nickCU">
-                        <h4>Password</h4>
-                        <input class= "form-control" id = "passCU">
-                        <h4>Pregunta de seguridad</h4>
-                        <select class= "form-control" id = "pregCU">
-                            <option value = 0> Primer mascota</option>
-                            <option value = 1> Cuidad de nacimiento</option>
-                            <option value = 2> Nombre de la madre</option>
-                            <option value = 3> Comida favorita</option>
-                        </select>
-                        <h4>Respuesta</h4>
-                        <input class= "form-control" id = "respCU">
-                        <h4>Avatar</h4>
-                        <select class= "form-control" id = "avatCU">
-                            <option value = 0>Avatar 1</option>
-                            <option value = 1>Avatar 2</option>
-                            <option value = 2>Avatar 3</option>
-                            <option value = 3>Avatar 4</option>
-                            <option value = 4>Avatar 5</option>
-                            <option value = 5>Avatar 6</option>
-                        </select>
-                        <br>
-                        <button class = "btn-success form-control" type="button">Cambiar datos</button>
-                    </form>
 
+                    <form id = "user">
+                        <span id = "formU">
+                            <span id = "form1">
+                                Filtrar por:
+                                <select class="form-control" onchange="filter()" id = "filtU">
+                                    <option value = 0>Nick-Name</option>
+                                    <option value = 1>Pregunta de seguridad</option>
+                                    <option value = 2>Avatar</option>
+                                    <option value = 3>No filtrar</option>
+                                </select>
+                                <span id = "fNick">
+                                    Nick-Name
+                                    <input class= "form-control" id = "nickBCU" onkeyup="ajax('nickBCU')">
+                                </span>
+                                <span id = "fPreg">
+                                    Pregunta de seguridad
+                                    <select class= "form-control" id = "pregBCU" onchange="ajax('pregBCU')">
+                                        <option value = 0> Primer mascota</option>
+                                        <option value = 1> Cuidad de nacimiento</option>
+                                        <option value = 2> Nombre de la madre</option>
+                                        <option value = 3> Comida favorita</option>
+                                    </select>
+                                </span>
+                                <span id = "fAvat">
+                                    Avatar
+                                    <select class= "form-control" id = "avatBCU" onchange="ajax('avatBCU')">
+                                        <option value = 0>Avatar 1</option>
+                                        <option value = 1>Avatar 2</option>
+                                        <option value = 2>Avatar 3</option>
+                                        <option value = 3>Avatar 4</option>
+                                        <option value = 4>Avatar 5</option>
+                                        <option value = 5>Avatar 6</option>
+                                    </select>
+                                </span>
+                                Resultados
+                                <select class= "form-control" id = "resuU"></select>
+                                <br>
+                            </span>
+                            <span id = "bVDat">
+                                <br>
+                            </span>
+                            <span id = "form2">
+                                Nick-Name
+                                <input class= "form-control" id = "nickAU">
+                                Password
+                                <input class= "form-control" id = "passAU">
+                                Pregunta de seguridad
+                                <select class= "form-control" id = "pregAU">
+                                    <option value = 0> Primer mascota</option>
+                                    <option value = 1> Cuidad de nacimiento</option>
+                                    <option value = 2> Nombre de la madre</option>
+                                    <option value = 3> Comida favorita</option>
+                                </select>
+                                Respuesta
+                                <input class= "form-control" id = "respAU">
+                                Avatar
+                                <select class= "form-control" id = "avatAU">
+                                    <option value = 0>Avatar 1</option>
+                                    <option value = 1>Avatar 2</option>
+                                    <option value = 2>Avatar 3</option>
+                                    <option value = 3>Avatar 4</option>
+                                    <option value = 4>Avatar 5</option>
+                                    <option value = 5>Avatar 6</option>
+                                </select>
+                                <br>
+                            </span>
+                            <span id = "bDAlt">
+                                <button class = "btn-success form-control" type="button">Dar de alta</button>
+                            </span>
+                            <span id = "bDBaj">
+                                <button class = "btn-danger form-control" type="button">Dar de baja</button>
+                            </span>
+                            <span id = "bCDat">
+                                <button class = "btn-info form-control" type="button">Cambiar datos</button>
+                            </span>
+                        </span>
+                    </form>
                     <form id = "altaE" hidden="hidden"></form>
                     <form id = "bajaE" hidden="hidden"></form>
                     <form id = "cambE" hidden="hidden"></form>
