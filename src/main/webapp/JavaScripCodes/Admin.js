@@ -49,12 +49,15 @@ function filter() {
     switch (value) {
         case "0":
             document.getElementById("fNick").hidden = false;
+            ajax("nickBCU");
             break;
         case "1":
             document.getElementById("fPreg").hidden = false;
+            ajax("pregBCU");
             break;
         case "2":
             document.getElementById("fAvat").hidden = false;
+            ajax("avatBCU");
             break;
         case "3":
             ajax("*");
@@ -65,6 +68,11 @@ function resetSpans() {
     document.getElementById("form1").hidden = false;
     document.getElementById("form2").hidden = false;
     document.getElementById("formU").hidden = false;
+    
+    
+    document.getElementById("form3").hidden = false;
+    document.getElementById("form4").hidden = false;
+    document.getElementById("formE").hidden = false;
     resetFilters(false);
     resetButtons();
 }
@@ -72,12 +80,21 @@ function resetFilters(bool) {
     document.getElementById("fNick").hidden = bool;
     document.getElementById("fPreg").hidden = bool;
     document.getElementById("fAvat").hidden = bool;
+    
+    document.getElementById("fWord").hidden = bool;
+    document.getElementById("fType").hidden = bool;
+    document.getElementById("fDesc").hidden = bool;
 }
 function resetButtons() {
     document.getElementById("bVDat").hidden = false;
     document.getElementById("bDAlt").hidden = false;
     document.getElementById("bDBaj").hidden = false;
     document.getElementById("bCDat").hidden = false;
+    
+    /*document.getElementById("bVDat").hidden = false;
+    document.getElementById("bDAlt").hidden = false;
+    document.getElementById("bDBaj").hidden = false;
+    document.getElementById("bCDat").hidden = false;*/
 }
 function clearInputs() {
     document.getElementById("nickBCU").value = "";
@@ -89,6 +106,15 @@ function clearInputs() {
     document.getElementById("avatBCU").value = "0";
     document.getElementById("pregAU").value = "0";
     document.getElementById("avatAU").value = "0";
+    
+    /*document.getElementById("wordBCE").value = "";
+    document.getElementById("descBCE").value = "";
+    document.getElementById("idAE").value = "";
+    document.getElementById("wordAE").value = "";
+    document.getElementById("descpAU").value = "";
+
+    document.getElementById("typeBCE").value = "0";
+    document.getElementById("typeAE").value = "0";*/
 }
 function ajax(id) {
     var xhttp;

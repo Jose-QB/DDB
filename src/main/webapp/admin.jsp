@@ -67,7 +67,7 @@
                                 </select>
                                 <span id = "fNick">
                                     Nick-Name
-                                    <input class= "form-control" id = "nickBCU" onkeyup="ajax('nickBCU')">
+                                    <input class= "form-control" id = "nickBCU" onkeyup="ajax('nickBCU')" type = "text">
                                 </span>
                                 <span id = "fPreg">
                                     Pregunta de seguridad
@@ -98,7 +98,7 @@
                             </span>
                             <span id = "form2">
                                 Nick-Name
-                                <input class= "form-control" id = "nickAU">
+                                <input class= "form-control" id = "nickAU" type = "text">
                                 Password
                                 <input class= "form-control" id = "passAU">
                                 Pregunta de seguridad
@@ -109,7 +109,7 @@
                                     <option value = 3> Comida favorita</option>
                                 </select>
                                 Respuesta
-                                <input class= "form-control" id = "respAU">
+                                <input class= "form-control" id = "respAU" type = "text">
                                 Avatar
                                 <select class= "form-control" id = "avatAU">
                                     <option value = 0>Avatar 1</option>
@@ -132,7 +132,51 @@
                             </span>
                         </span>
                     </form>
-                    <form id = "altaE" hidden="hidden"></form>
+                    <form id = "expretion">
+                        <span id = "formE">
+                            <span id = "form3">
+                                Filtrar por
+                                <select class = "form-control" id = "filtE">
+                                    <option value = 0>Palabra</option>
+                                    <option value = 1>Tipo</option>
+                                    <option value = 2>Descrición</option>
+                                </select>
+                                <span id = "fWord">
+                                    Palabra
+                                    <input class = "form-control" type ="text" id = "wordBCE">
+                                </span>
+                                <span id = "fType">
+                                    Tipo
+                                    <select class = "form-control" id = "typeBCE">
+                                        <option value = 0>si</option>
+                                    </select>
+                                </span>
+                                <span id = "fDesc">
+                                    Descripción
+                                    <textarea class = "form-control" id = "descBCE"></textarea>
+                                </span>
+                                Resultados
+                                <select class = "form-control" id = "resuE"></select>
+                                <br>
+                            </span>
+                            <span id = "cExp">
+                                <br>
+                            </span>
+                            <span id = "form4">
+                                ID_Expresión
+                                <input class= "form-control" type = "text" disabled = "disabled" id = "idAE">
+                                Palabra
+                                <input class= "form-control" type = "text" id = "wordAE">
+                                Tipo
+                                <select class = "form-control" id = "typeAE">
+                                    <option value = 0>si</option>
+                                </select>
+                                Descripcion
+                                <textarea class = "form-control" id = "DescAE"></textarea>
+                                <br>
+                            </span>
+                        </span>
+                    </form>
                     <form id = "bajaE" hidden="hidden"></form>
                     <form id = "cambE" hidden="hidden"></form>
 
