@@ -28,6 +28,8 @@ import com.mongodb.client.model.Sorts;
 import com.mongodb.util.JSON;
 import java.util.Arrays;
 import org.bson.Document;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -36,6 +38,7 @@ import org.bson.Document;
 public class MongodbConexion {
 
     private static MongoCollection<Document> collectionUsuarios;
+    private static MongoCollection<Document> collectionDicc;
 
     public MongodbConexion() {
         try {
@@ -48,9 +51,9 @@ public class MongodbConexion {
 
             // PASO 3: Obtenemos una coleccion para trabajar con ella
             MongoCollection<Document> collection = database.getCollection("usuario");
-            //DBCollection collection = db.getCollection("Futbolistas");
             this.collectionUsuarios = collection;
-
+            collection = database.getCollection("dicc");
+            this.collectionDicc = collection;
             // PASO FINAL: Cerrar la conexion
             //mongoClient.close();
         } catch (Exception ex) {
@@ -62,38 +65,64 @@ public class MongodbConexion {
         int number = 0;
         switch (whichCollection) {
             case "usuario":
-               number= (int) collectionUsuarios.count();
+                number = (int) collectionUsuarios.count();
                 break;
         }
         return number;
     }
 
-    public void INSERT(String query) {
-
-    }
-
-    public void READ(String query) {
-
-    }
-
-    public void prueba() {
-        Document myDoc = collectionUsuarios.find(eq("nombre", "Iker")).first();
-        System.out.println(myDoc.toJson());
-        /*MongoCursor<Document> cursor = collection.find().iterator();
+    public JSONObject buscaUsuario(String nombre, String pass) {
+        JSONObject jsonResult = null;
         try {
-            while (cursor.hasNext()) {
-                System.out.println(cursor.next().toJson());
-            }
-        } finally {
-            cursor.close();
-        }*/
+            Document myDoc = collectionUsuarios.find(and(eq("nickname", nombre), eq("passwrd", pass))).first();
+            jsonResult = new JSONObject(myDoc.toJson().toString());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return jsonResult;
     }
 
-    public void UPDATE(String dbObject, String dbObject1) {
-
+    public void altaUsuario(String nickname, String passwrd, int id_pregunta, String respuesta, int id_avatar) {
+        Document doc = new Document("nickname", nickname)
+                .append("passwrd", passwrd)
+                .append("id_pregunta", id_pregunta)
+                .append("respuesta", respuesta)
+                .append("id_avatar", id_avatar)
+                .append("nivel", Arrays.asList(0))
+                .append("puntaje", 0);
+        collectionUsuarios.insertOne(doc);
     }
 
-    public void REMOVE(String query) {
+    public JSONObject compruebaUsuario(String nombre) {
+        JSONObject jsonResult = null;
+        try {
+            Document myDoc = collectionUsuarios.find(eq("nickname", nombre)).first();
+            jsonResult = new JSONObject(myDoc.toJson().toString());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return jsonResult;
+    }
 
+    public JSONObject buscaPalabra(String palabra) {
+        JSONObject jsonResult = null;
+        try {
+            Document myDoc = collectionDicc.find(eq("palabra", palabra)).first();
+            jsonResult = new JSONObject(myDoc.toJson().toString());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return jsonResult;
+    }
+    
+    public void cambioConfig(String oldNickname,String newNickname, String passwrd,int id_avatar){
+        //String modifica = "update usuario set nickname='" + nickname + "' , passwrd= '" + passwrd + "' , id_avatar=" + id_avatar + " where id_usuario=" + id_usuario + ";";
+        collectionUsuarios.updateOne(eq("nickname", oldNickname), new Document("$set", new Document("passwrd", passwrd)));
+        collectionUsuarios.updateOne(eq("nickname", oldNickname), new Document("$set", new Document("id_avatar", id_avatar)));
+        collectionUsuarios.updateOne(eq("nickname", oldNickname), new Document("$set", new Document("nickname", newNickname)));
+    }
+    
+    public void cambioPass(String nickname,String passwrd){
+        collectionUsuarios.updateOne(eq("nickname", nickname), new Document("$set", new Document("passwrd", passwrd)));
     }
 }

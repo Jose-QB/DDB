@@ -104,8 +104,8 @@
                     ajax.onreadystatechange = funcionCallback;
 
                     //Enviamos la peticion 
-                    var id = "<%=user.getId_usuario()%>";
-                    ajax.open("GET", "AJAXCheckPasswrd.jsp?pass=" + document.getElementById('oldPass').value + "&id=" + id, true);
+                    var nickname = "<%=user.getNickname()%>";
+                    ajax.open("GET", "AJAXCheckPasswrd.jsp?pass=" + document.getElementById('oldPass').value + "&nickname=" + nickname, true);
                     ajax.send(null);
                 } else {
                     document.getElementById('errorPass').innerHTML = "El espacio está vacío";
@@ -135,7 +135,7 @@
             }
 
             function sendUpdate() {
-                var id_usuario = "<%=user.getId_usuario()%>";
+                var nickname = "<%=user.getNickname()%>";
                 var nombre = "<%=user.getNickname()%>";
                 var pass = "<%=user.getPasswrd()%>";
                 var avatar = "<%=user.getId_avatar()%>";
@@ -148,7 +148,7 @@
                 }
                 if (bandAvatar)
                     avatar = id_avatar;
-                location.href = "checkCambiosConfig.jsp?nombre=" + nombre + "&pass=" + pass + "&avatar=" + avatar + "&id=" + id_usuario + "&band=" + band;
+                location.href = "checkCambiosConfig.jsp?nombre=" + nombre + "&pass=" + pass + "&avatar=" + avatar + "&nickname=" + nickname + "&band=" + band;
             }
         </script>
         <div class="container-fluid">

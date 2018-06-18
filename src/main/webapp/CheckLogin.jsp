@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="org.json.JSONArray"%>
+<%@page import="org.json.JSONObject"%>
 <%@page import="javax.crypto.spec.SecretKeySpec"%>
 <%@page import="javax.crypto.Cipher"%>
 <%@page import="javax.crypto.SecretKey"%>
@@ -19,50 +21,28 @@
 <%@page session="true" %>
 
 <%
-    String secretKey = "SomosPapusPro"; //llave para desenciptar datos
-    String base64EncryptedString = "";
-
     try {
         String user = "", password = "";
+        JSONObject jsonResult = null;
         if ((request.getParameter("usr") != null) && (request.getParameter("pssw") != null)) {
             user = request.getParameter("usr");
             password = request.getParameter("pssw");
-            String consulta = "select * from usuario where nickname='" + user + "';";
-            int a=objConnMongo.getCount("usuario");
-            System.out.println(a);
-            objConn.Consultar(consulta);            
-            
-            if (objConn.rs.getRow() != 0) {
-                String u = objConn.rs.getString(2);
-                String textoEncriptado = objConn.rs.getString(3);
-                String p="";
-                try {
-                    byte[] message = Base64.getDecoder().decode(textoEncriptado.getBytes("utf-8"));
-                    MessageDigest md = MessageDigest.getInstance("MD5");
-                    byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
-                    byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
-                    SecretKey key = new SecretKeySpec(keyBytes, "DESede");
-
-                    Cipher decipher = Cipher.getInstance("DESede");
-                    decipher.init(Cipher.DECRYPT_MODE, key);
-
-                    byte[] plainText = decipher.doFinal(message);
-
-                    base64EncryptedString = new String(plainText, "UTF-8");
-                    p=base64EncryptedString;
-                } catch (Exception ex) {
-                }
-                if (password.equals(p) && user.equals(u)) {
+            jsonResult = objConnMongo.buscaUsuario(user, password);
+            if (jsonResult != null) {
+                if (true) {
                     HttpSession iniciada = request.getSession();
                     iniciada.setMaxInactiveInterval(60 * 60 * 60);
-                    //id_usuario,nickname,passwrd,id_pregunta,respuesta,id_avatar
-                    int id_usuario = objConn.rs.getInt(1);
-                    String nickname = objConn.rs.getString(2);
-                    String passwrd = objConn.rs.getString(3);
-                    int id_pregunta = objConn.rs.getInt(4);
-                    String respuesta = objConn.rs.getString(5);
-                    int id_avatar = objConn.rs.getInt(6);
-                    Usuario usr = new Usuario(id_usuario, nickname, passwrd, id_pregunta, respuesta, id_avatar);
+                    Object data = jsonResult.get("_id"); //Aqui se sacan las anidaciones
+                    JSONObject aux = new JSONObject(data.toString());
+                    String id_usuario = aux.getString("$oid");
+                    String nickname = jsonResult.getString("nickname");
+                    String passwrd = jsonResult.getString("passwrd");
+                    int id_pregunta = jsonResult.getInt("id_pregunta");
+                    String respuesta = jsonResult.getString("respuesta");
+                    int id_avatar = jsonResult.getInt("id_avatar");
+                    JSONArray a= jsonResult.getJSONArray("nivel"); //Aqui se sacan los vectores
+                    int nivel = a.length();
+                    Usuario usr = new Usuario(id_usuario, nickname, passwrd, id_pregunta, respuesta, id_avatar, nivel);
                     iniciada.setAttribute("usuario", usr);
 %><jsp:forward page="Inicio.jsp"/>
 <%
@@ -78,18 +58,9 @@
     <jsp:param name="error" value="Usuario No Valido.<br>Vuelve a intentarlo"/>
 </jsp:forward>
 <%
-                            }
-                        }
-                    } catch (Exception e) {
-                    }%>
-
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>        
-    </body>
-</html>
+            }
+        }
+    } catch (Exception e) {
+    }%>
 
 

@@ -10,32 +10,13 @@
 <%@page import="java.util.Arrays"%>
 <%@page import="java.security.MessageDigest"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="objConn" class="mysql.MySqlConexion"/>
+<jsp:useBean id="objConn" class="Mongo.MySqlConexion"/>
+<jsp:useBean id="objConnMongo" class="Mongo.MongodbConexion"/>
 
 <%    
     String nickname = (String) request.getParameter("user");
     String Prepasswrd =(String) request.getParameter("pass");
-    String secretKey = "SomosPapusPro"; //llave para encriptar datos
-    String base64EncryptedString = "";
-    try {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
-        byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
-
-        SecretKey key = new SecretKeySpec(keyBytes, "DESede");
-        Cipher cipher = Cipher.getInstance("DESede");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
-
-        byte[] plainTextBytes = Prepasswrd.getBytes("utf-8");
-        byte[] buf = cipher.doFinal(plainTextBytes);
-        byte[] base64Bytes = Base64.getEncoder().encode(buf);
-        base64EncryptedString = new String(base64Bytes);
-
-    } catch (Exception ex) {
-    }
-    String modifica = "update usuario set passwrd= '" + base64EncryptedString + "' where nickname='" + nickname + "';";
-    objConn.Actualizar(modifica);
-    objConn.closeRsStmt();
+    objConnMongo.cambioPass(nickname, Prepasswrd);
 %>
 <jsp:forward page="Iniciar_Sesion.jsp">
     <jsp:param name="cambioPass" value="Cambio Exitoso"/>

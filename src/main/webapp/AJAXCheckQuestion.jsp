@@ -3,18 +3,20 @@
     Created on : 25/11/2017, 11:39:17 PM
     Author     : erick
 --%>
+<%@page import="org.json.JSONObject"%>
 <%@page import="java.util.ArrayList"%>
-<jsp:useBean id="objConn" class="mysql.MySqlConexion"/>
+<jsp:useBean id="objConn" class="Mongo.MySqlConexion"/>
+<jsp:useBean id="objConnMongo" class="Mongo.MongodbConexion"/>
 <%
-    String usuario = request.getParameter("user");
-    String consulta = "select * from usuario where nickname='" + usuario + "';";
-    objConn.Consultar(consulta);
-    if (objConn.rs.getRow() != 0) {
+    String usuario = request.getParameter("user");    
+    JSONObject jsonResult = null;
+    jsonResult = objConnMongo.compruebaUsuario(usuario);
+    if (jsonResult != null) {
         String pregunta="NaN";
         String respuesta="NaN";
         try {            
-            pregunta = objConn.rs.getString(4);            
-            respuesta = objConn.rs.getString(5);            
+            pregunta = String.valueOf(jsonResult.getInt("id_pregunta"));            
+            respuesta = jsonResult.getString("respuesta");            
         } catch (Exception e) {
         }
         objConn.closeRsStmt();

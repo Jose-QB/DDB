@@ -4,19 +4,21 @@
     Author     : erick
 --%>
 
+<%@page import="org.json.JSONObject"%>
 <%@page import="Clases.Usuario"%>
-<jsp:useBean id="objConn" class="mysql.MySqlConexion"/>
+<jsp:useBean id="objConn" class="Mongo.MySqlConexion"/>
+<jsp:useBean id="objConnMongo" class="Mongo.MongodbConexion"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
     Usuario user;
     HttpSession sesionOk = request.getSession();
     user = (Usuario) sesionOk.getAttribute("usuario");
-    int puntaje=0;
-    String consulta = "select * from puntajeusuario where id_usuario=" + user.getId_usuario() + ";";
-    objConn.Consultar(consulta);
-    if (objConn.rs.getRow() != 0) {
-        puntaje = objConn.rs.getInt(2);
+    int puntaje=0;    
+    JSONObject jsonResult = null;
+    jsonResult = objConnMongo.compruebaUsuario(user.getNickname()); 
+    if (jsonResult != null) {
+        puntaje = jsonResult.getInt("puntaje");
     }
 
 %>

@@ -7,7 +7,7 @@
 <%@page import="java.sql.ResultSetMetaData"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Clases.Usuario"%>
-<jsp:useBean id="objConn" class="mysql.MySqlConexion"/>
+<jsp:useBean id="objConn" class="Mongo.MySqlConexion"/>
 <%
     Usuario user;
     HttpSession sesionOk = request.getSession();
