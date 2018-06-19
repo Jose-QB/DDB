@@ -130,7 +130,7 @@
                          /*La consulta siguiente es para obtener el numero de niveles que hay en la unidad escogida
                            Dependiendo de la unidad elegida se mostraran las imagenes especificadas
                            y el padding que tendrá cada una*/
-                                    
+//obtener usuario y el numero de niveles terminados---------------------------------------------------------------------------------                                    
                         String consulta = "select count(id_nivel) from nivel where id_unidad='" + unidad + "';";
                         objConn.Consultar(consulta);
                         int x = objConn.rs.getInt(1);;

@@ -27,6 +27,7 @@ import static com.mongodb.client.model.Projections.*;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.util.JSON;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 import org.bson.Document;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -104,6 +105,36 @@ public class MongodbConexion {
         return jsonResult;
     }
 
+    public ArrayList<JSONObject> findSimilar(String param, String value) {
+        ArrayList<JSONObject> jsonResult = new ArrayList<JSONObject>();
+        MongoCursor<Document> myDoc=null;
+        try {
+            switch(param){
+                case "nickname":
+                    Document doc = new Document(param, Pattern.compile(value, Pattern.CASE_INSENSITIVE));
+                    myDoc = collectionUsuarios.find(doc).iterator();
+                    break;
+                case "id_pregunta": case"id_avatar":
+                    myDoc = collectionUsuarios.find(eq(param,Integer.parseInt(value))).iterator();
+                    break;                    
+                default:
+                    myDoc = collectionUsuarios.find().iterator();
+                    break;                   
+            }
+            
+            while (myDoc.hasNext()) {
+                jsonResult.add(new JSONObject(myDoc.next().toJson().toString()));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return jsonResult;
+    }
+    
+    public void removeUser(String nick) {
+        collectionUsuarios.deleteOne(eq("nickname", nick));
+    }
+    
     public JSONObject buscaPalabra(String palabra) {
         JSONObject jsonResult = null;
         try {
@@ -114,15 +145,15 @@ public class MongodbConexion {
         }
         return jsonResult;
     }
-    
-    public void cambioConfig(String oldNickname,String newNickname, String passwrd,int id_avatar){
+
+    public void cambioConfig(String oldNickname, String newNickname, String passwrd, int id_avatar) {
         //String modifica = "update usuario set nickname='" + nickname + "' , passwrd= '" + passwrd + "' , id_avatar=" + id_avatar + " where id_usuario=" + id_usuario + ";";
         collectionUsuarios.updateOne(eq("nickname", oldNickname), new Document("$set", new Document("passwrd", passwrd)));
         collectionUsuarios.updateOne(eq("nickname", oldNickname), new Document("$set", new Document("id_avatar", id_avatar)));
         collectionUsuarios.updateOne(eq("nickname", oldNickname), new Document("$set", new Document("nickname", newNickname)));
     }
-    
-    public void cambioPass(String nickname,String passwrd){
+
+    public void cambioPass(String nickname, String passwrd) {
         collectionUsuarios.updateOne(eq("nickname", nickname), new Document("$set", new Document("passwrd", passwrd)));
     }
 }

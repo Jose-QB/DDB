@@ -159,10 +159,10 @@ function clearInputs() {
     document.getElementById("passAU").value = "";
     document.getElementById("respAU").value = "";
 
-    document.getElementById("pregBCU").value = "0";
-    document.getElementById("avatBCU").value = "0";
-    document.getElementById("pregAU").value = "0";
-    document.getElementById("avatAU").value = "0";
+    document.getElementById("pregBCU").value = "1";
+    document.getElementById("avatBCU").value = "1";
+    document.getElementById("pregAU").value = "1";
+    document.getElementById("avatAU").value = "1";
 
     document.getElementById("wordBCE").value = "";
     document.getElementById("descBCE").value = "";
@@ -192,7 +192,7 @@ function ajaxU(id) {
             document.getElementById("resuU").innerHTML = this.responseText;
         }
     };
-    xhttp.open("GET", "ajaxSearchU.jsp?u=" + str, true);
+    xhttp.open("GET", "ajaxSearchU.jsp?u=" + str + "&c=" + id, true);
     xhttp.send();
 }
 function ajaxE(id) {
@@ -214,6 +214,36 @@ function ajaxE(id) {
         }
     };
     xhttp.open("GET", "ajaxSearchE.jsp?e=" + str, true);
+    xhttp.send();
+}
+window.onload = function () {
+    hideForms();
+}
+
+function ajaxUser(c) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            //document.getElementById("resuE").innerHTML = this.responseText;
+            alert(this.responseText);
+        }
+    };
+    switch (c) {
+        case 0:
+            var nick = document.getElementById("nickAU").value;
+            var pass = document.getElementById("passAU").value;
+            var quest = document.getElementById("pregAU").options[document.getElementById("pregAU").selectedIndex].value;
+            var answ = document.getElementById("respAU").value;
+            var avat = document.getElementById("avatAU").options[document.getElementById("avatAU").selectedIndex].value;
+            xhttp.open("GET", "ajaxUser.jsp?c=" + c + "&nick=" + nick + "&pass" + pass + "&quest=" + quest + "&answ=" + answ + "&avat=" + avat, true);
+            break;
+        case 1:
+            var nick = document.getElementById("resuU").options[document.getElementById("resuU").selectedIndex].value;
+            xhttp.open("GET", "ajaxUser.jsp?c=" + c + "&nick=" + nick, true);
+            document.getElementById("resuU").value = "";
+            break;
+    }
     xhttp.send();
 }
 window.onload = function () {

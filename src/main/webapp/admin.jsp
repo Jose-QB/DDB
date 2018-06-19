@@ -72,21 +72,21 @@
                                 <span id = "fPreg">
                                     Pregunta de seguridad
                                     <select class= "form-control" id = "pregBCU" onchange="ajaxU('pregBCU')">
-                                        <option value = 0> Primer mascota</option>
-                                        <option value = 1> Cuidad de nacimiento</option>
-                                        <option value = 2> Nombre de la madre</option>
-                                        <option value = 3> Comida favorita</option>
+                                        <option value = 1> Primer mascota</option>
+                                        <option value = 2> Cuidad de nacimiento</option>
+                                        <option value = 3> Nombre de la madre</option>
+                                        <option value = 4> Comida favorita</option>
                                     </select>
                                 </span>
                                 <span id = "fAvat">
                                     Avatar
                                     <select class= "form-control" id = "avatBCU" onchange="ajaxU('avatBCU')">
-                                        <option value = 0>Avatar 1</option>
-                                        <option value = 1>Avatar 2</option>
-                                        <option value = 2>Avatar 3</option>
-                                        <option value = 3>Avatar 4</option>
-                                        <option value = 4>Avatar 5</option>
-                                        <option value = 5>Avatar 6</option>
+                                        <option value = 1>Avatar 1</option>
+                                        <option value = 2>Avatar 2</option>
+                                        <option value = 3>Avatar 3</option>
+                                        <option value = 4>Avatar 4</option>
+                                        <option value = 5>Avatar 5</option>
+                                        <option value = 6>Avatar 6</option>
                                     </select>
                                 </span>
                                 Resultados
@@ -103,29 +103,29 @@
                                 <input class= "form-control" id = "passAU">
                                 Pregunta de seguridad
                                 <select class= "form-control" id = "pregAU">
-                                    <option value = 0> Primer mascota</option>
-                                    <option value = 1> Cuidad de nacimiento</option>
-                                    <option value = 2> Nombre de la madre</option>
-                                    <option value = 3> Comida favorita</option>
+                                    <option value = 1> Primer mascota</option>
+                                    <option value = 2> Cuidad de nacimiento</option>
+                                    <option value = 3> Nombre de la madre</option>
+                                    <option value = 4> Comida favorita</option>
                                 </select>
                                 Respuesta
                                 <input class= "form-control" id = "respAU" type = "text">
                                 Avatar
                                 <select class= "form-control" id = "avatAU">
-                                    <option value = 0>Avatar 1</option>
-                                    <option value = 1>Avatar 2</option>
-                                    <option value = 2>Avatar 3</option>
-                                    <option value = 3>Avatar 4</option>
-                                    <option value = 4>Avatar 5</option>
-                                    <option value = 5>Avatar 6</option>
+                                    <option value = 1>Avatar 1</option>
+                                    <option value = 2>Avatar 2</option>
+                                    <option value = 3>Avatar 3</option>
+                                    <option value = 4>Avatar 4</option>
+                                    <option value = 5>Avatar 5</option>
+                                    <option value = 6>Avatar 6</option>
                                 </select>
                                 <br>
                             </span>
                             <span id = "bDAlt">
-                                <button class = "btn-success form-control" type="button">Dar de alta</button>
+                                <button class = "btn-success form-control" type="button" onclick="ajaxUser(0)">Dar de alta</button>
                             </span>
                             <span id = "bDBaj">
-                                <button class = "btn-danger form-control" type="button">Dar de baja</button>
+                                <button class = "btn-danger form-control" type="button" onclick="ajaxUser(1)">Dar de baja</button>
                             </span>
                             <span id = "bCDat">
                                 <button class = "btn-info form-control" type="button">Cambiar datos</button>
