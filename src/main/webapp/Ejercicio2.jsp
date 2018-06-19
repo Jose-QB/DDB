@@ -168,7 +168,7 @@
                                     int a = (int) (Math.random() * 3), b = a, c = a;
                                     ArrayList<Integer> aux = new ArrayList<Integer>();
                                     ArrayList<String> valor = new ArrayList<String>();
-                                    ArrayList<byte[]> resp = new ArrayList<byte[]>();
+                                    ArrayList<Integer> resp = new ArrayList<Integer>();
                                     while (b == a) {
                                         b = (int) (Math.random() * 3);
                                     }
@@ -183,7 +183,7 @@
                                         switch (aux.get(i)) {
                                             case 0:
                                                 valor.add(ejercicios.getNivel().get(0).getPalabra());
-                                                resp.add(ejercicios.getNivel().get(0).getFoto());
+                                                resp.add(ejercicios.getNivel().get(0).getIdFoto());
                                                 break;
                                             case 1:
                                                 valor.add(ejercicios.getNivel().get(0).getRf1());
@@ -199,19 +199,19 @@
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-2" >
                                     <button type="button" class="btn btn-default active respuesta" id="borde1" onclick="activar('Confirmar', value)" value="<%= valor.get(0)%>">
-                                        <img src="data:image/jpg;base64, <%=javax.xml.bind.DatatypeConverter.printBase64Binary(resp.get(0))%>" class="pad img-responsive imgRespuesta">
+                                        <img src="Imagenes/exer/<%=resp.get(0)%>.jpg" class="pad img-responsive imgRespuesta">
                                     </button>
                                 </div>
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-2" >
                                     <button type="button" class="btn btn-default active respuesta" id="borde2" onclick="activar('Confirmar', value)" value="<%= valor.get(1)%>">
-                                        <img src="data:image/jpg;base64, <%=javax.xml.bind.DatatypeConverter.printBase64Binary(resp.get(1))%>" class="pad img-responsive imgRespuesta">
+                                        <img src="Imagenes/exer/<%=resp.get(1)%>.jpg" class="pad img-responsive imgRespuesta">
                                     </button>
                                 </div>
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-2">
                                     <button type="button" class="btn btn-default active respuesta" id="borde3" onclick="activar('Confirmar', value)" value="<%= valor.get(2)%>">
-                                        <img src="data:image/jpg;base64, <%=javax.xml.bind.DatatypeConverter.printBase64Binary(resp.get(2))%>" class="pad img-responsive imgRespuesta">
+                                        <img src="Imagenes/exer/<%=resp.get(2)%>.jpg" class="pad img-responsive imgRespuesta">
                                     </button>
                                 </div>
                                 <div class="col-sm-2"></div>

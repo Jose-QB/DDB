@@ -62,8 +62,8 @@ public class Nivel {
                 aux = nivel.get(i);
                 aux.setRf1(nivel.get(r1).getPalabra());
                 aux.setRf2(nivel.get(r2).getPalabra());
-                aux.setFf1(nivel.get(r1).getFoto());
-                aux.setFf2(nivel.get(r2).getFoto());
+                aux.setFf1(nivel.get(r1).getIdFoto());
+                aux.setFf2(nivel.get(r2).getIdFoto());
                 lista.add(aux);
             }
         }

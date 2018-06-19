@@ -19,28 +19,19 @@
     JSONObject jsonResult = null;
     jsonResult = objConnMongo.buscaPalabra(palabra);
     if (jsonResult != null) {
-        String letra = jsonResult.getString("palabra");
-        String descripcion = jsonResult.getString("descripcion");
-        int idImg = jsonResult.getInt("_id");
-        byte[] img64 = null; //Falta la imagen                
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        File f = new File("./Imagenes/Avatares/Elejido/6c.png");
-        BufferedImage img = null;
+        String letra="";
+        String descripcion="";
+        int img64 = 0;
         try {
-            File file = new File("Imagenes/Avatares/Elejido/1c.png");
-            switch (idImg) {
-                case 1:
-                    img = ImageIO.read(file);
-                    break;
-            }
-            ImageIO.write(img, "png", bos);
-            img64 = bos.toByteArray();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+            letra = jsonResult.getString("palabra");
+            descripcion = jsonResult.getString("descripcion");
+            img64 = jsonResult.getInt("_id");
+        } catch (Exception e) {
+            System.err.println("Fallo imag");
         }
 
 %>
-<%= letra + "," + javax.xml.bind.DatatypeConverter.printBase64Binary(img64) + "," + descripcion%>
+<%= letra + "," + img64 + "," + descripcion%>
 <%} else {
     objConn.closeRsStmt();%>
 <%="no"%>

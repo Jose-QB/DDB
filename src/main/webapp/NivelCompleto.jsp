@@ -6,7 +6,8 @@
 
 <%@page import="Clases.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="objConn" class="mysql.MySqlConexion"/>
+<jsp:useBean id="objConn" class="Mongo.MySqlConexion"/>
+<jsp:useBean id="objConnMongo" class="Mongo.MongodbConexion"/>
 <%
     Usuario user;
     HttpSession sesionOk = request.getSession();
@@ -23,19 +24,21 @@
             int nivel = (Integer) sesionOk.getAttribute("nivel");
             String consulta = "select * from realizo where id_usuario = " + user.getId_usuario() + " and id_nivel = " + nivel + ";";
             objConn.Consultar(consulta);
-            int us, ni, punt; 
+            int us, ni, punt;
             String p;
             p = request.getParameter("calif");
-            
-            if (objConn.rs.getRow() != 0) {
-                us = objConn.rs.getInt(1);
-                ni = objConn.rs.getInt(2);
-                punt = objConn.rs.getInt(3);
-                String modifica = "update realizo set puntaje = " + (punt + Integer.parseInt(p)) + " where id_usuario = " + us + " and id_nivel = " + ni + ";";
-                objConn.Actualizar(modifica);
+            int index=-1;
+            for (int i = 0; i < user.getNivel().size(); i++) {
+                if(nivel == Integer.parseInt(user.getNivel().get(i)))index=i;
+            }
+
+            if (index != -1) {
+                objConnMongo.updatePuntaje(user.getNickname(), user.getPuntaje()+ Integer.parseInt(p));
             } else {
-                String modifica = "INSERT INTO realizo (id_nivel, id_usuario, puntaje) VALUES (" + nivel + ", " + user.getId_usuario() + ", " + p + ");";
-                objConn.Actualizar(modifica);
+                objConnMongo.updatePuntaje(user.getNickname(), Integer.parseInt(p));
+                objConnMongo.updateNivel(user.getNickname(), user.getNivel(),nivel);
+                /*String modifica = "INSERT INTO realizo (id_nivel, id_usuario, puntaje) VALUES (" + nivel + ", " + user.getId_usuario() + ", " + p + ");";
+                objConn.Actualizar(modifica);*/
             }
             sesionOk.setAttribute("ejercicios", null);
             sesionOk.setAttribute("respuesta", null);

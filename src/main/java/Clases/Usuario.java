@@ -15,24 +15,31 @@ public class Usuario {
 
     ////id_usuario,nickname,passwrd,id_pregunta,respuesta,id_avatar
     private String nickname, passwrd, respuesta, id_usuario;
-    private int  id_pregunta, id_avatar;
+    private int  id_pregunta, id_avatar, puntaje;
     private ArrayList<String> nivel = new ArrayList<String>();
 
     public Usuario() {
     }
 
-    public Usuario(String id_usuario, String nickname, String passwrd, int id_pregunta, String respuesta, int id_avatar,int nivel) {
+    public Usuario(String id_usuario, String nickname, String passwrd, int id_pregunta, String respuesta, int id_avatar,int puntaje,ArrayList<String> nivel) {
         this.nickname = nickname;
         this.passwrd = passwrd;
         this.respuesta = respuesta;
         this.id_usuario = id_usuario;
         this.id_pregunta = id_pregunta;
         this.id_avatar = id_avatar;
-        for (int i = 0; i < nivel; i++) {
-            this.nivel.add(String.valueOf(i));
-        }
+        this.nivel = nivel;
+        this.puntaje = puntaje;
     }
 
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+    
     public ArrayList<String> getNivel() {
         return nivel;
     }

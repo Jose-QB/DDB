@@ -155,9 +155,9 @@
                                 <div class="col-sm-4"></div>
                                 <div class="col-sm-4">
                                     <%
-                                        String imagen = javax.xml.bind.DatatypeConverter.printBase64Binary(ejercicios.getNivel().get(0).getFoto());
+                                        int imagen = ejercicios.getNivel().get(0).getIdFoto();
                                     %>
-                                    <img src="data:image/jpg;base64, <%=imagen%>" class=" pad img-responsive" id="imgEjercicio">
+                                    <img src="Imagenes/exer/<%=imagen%>.jpg" class=" pad img-responsive" id="imgEjercicio">
                                 </div>
                                 <div class="col-sm-4"></div>
                             </div>

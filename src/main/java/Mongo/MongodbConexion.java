@@ -27,6 +27,7 @@ import static com.mongodb.client.model.Projections.*;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.util.JSON;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 import org.bson.Document;
 import org.json.JSONArray;
@@ -37,14 +38,14 @@ import org.json.JSONObject;
  * @author erick
  */
 public class MongodbConexion {
-
+    private static MongoCollection<Document> collectionEjer;
     private static MongoCollection<Document> collectionUsuarios;
     private static MongoCollection<Document> collectionDicc;
 
     public MongodbConexion() {
         try {
             // PASO 1: Conexión al Server de MongoDB Pasandole el host y el puerto
-            MongoClient mongoClient = new MongoClient("192.168.1.91", 27017);
+            MongoClient mongoClient = new MongoClient("192.168.1.81", 27017);
 
             // PASO 2: Conexión a la base de datos
             MongoDatabase database = mongoClient.getDatabase("gtmx");
@@ -55,6 +56,8 @@ public class MongodbConexion {
             this.collectionUsuarios = collection;
             collection = database.getCollection("dicc");
             this.collectionDicc = collection;
+            collection = database.getCollection("ejer");
+            this.collectionEjer = collection;
             // PASO FINAL: Cerrar la conexion
             //mongoClient.close();
         } catch (Exception ex) {
@@ -105,23 +108,61 @@ public class MongodbConexion {
         return jsonResult;
     }
 
+    public JSONArray getLevel(int Id_nivel) {
+        JSONArray expresion = null;
+        try {
+        Document myDoc = collectionEjer.find(eq("nivel.Id_nivel", Id_nivel)).first();
+        String respuesta = myDoc.toJson().toString();
+        System.out.println(respuesta);
+        JSONObject jsonResult = new JSONObject(respuesta);
+        JSONArray nivel = jsonResult.getJSONArray("nivel");
+        JSONObject aux = null;
+        for (int i = 0; i < nivel.length(); i++) {
+            aux = new JSONObject(nivel.get(i).toString());
+            if (Id_nivel == aux.getInt("Id_nivel")) {
+                break;
+            }
+        }
+        System.out.println(aux.toString());
+        expresion = aux.getJSONArray("expresion");
+        System.out.println(expresion.toString());
+        } catch (Exception e) {
+            System.out.println("pues no se pudo carnal");
+        }
+        return expresion;
+    }
+    
+    public void updatePuntaje(String nickname, int puntaje){
+        collectionUsuarios.updateOne(eq("nickname", nickname), new Document("$set", new Document("puntaje", puntaje)));
+    }
+    
+    public void updateNivel(String nickname,ArrayList<String> array, int nivel){
+        array.add(String.valueOf(nivel));
+        ArrayList<Integer> newVec = new ArrayList<Integer>();
+        for (int i = 0; i < array.size(); i++) {
+            newVec.add(Integer.parseInt(array.get(i)));
+        }       
+        collectionUsuarios.updateOne(eq("nickname", nickname), new Document("$set", new Document("nivel", newVec)));
+    }
+    
     public ArrayList<JSONObject> findSimilar(String param, String value) {
         ArrayList<JSONObject> jsonResult = new ArrayList<JSONObject>();
-        MongoCursor<Document> myDoc=null;
+        MongoCursor<Document> myDoc = null;
         try {
-            switch(param){
+            switch (param) {
                 case "nickname":
                     Document doc = new Document(param, Pattern.compile(value, Pattern.CASE_INSENSITIVE));
                     myDoc = collectionUsuarios.find(doc).iterator();
                     break;
-                case "id_pregunta": case"id_avatar":
-                    myDoc = collectionUsuarios.find(eq(param,Integer.parseInt(value))).iterator();
-                    break;                    
+                case "id_pregunta":
+                case "id_avatar":
+                    myDoc = collectionUsuarios.find(eq(param, Integer.parseInt(value))).iterator();
+                    break;
                 default:
                     myDoc = collectionUsuarios.find().iterator();
-                    break;                   
+                    break;
             }
-            
+
             while (myDoc.hasNext()) {
                 jsonResult.add(new JSONObject(myDoc.next().toJson().toString()));
             }
@@ -130,11 +171,11 @@ public class MongodbConexion {
         }
         return jsonResult;
     }
-    
+
     public void removeUser(String nick) {
         collectionUsuarios.deleteOne(eq("nickname", nick));
     }
-    
+
     public JSONObject buscaPalabra(String palabra) {
         JSONObject jsonResult = null;
         try {

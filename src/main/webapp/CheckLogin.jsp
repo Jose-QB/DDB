@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="org.json.JSONArray"%>
 <%@page import="org.json.JSONObject"%>
 <%@page import="javax.crypto.spec.SecretKeySpec"%>
@@ -40,9 +41,13 @@
                     int id_pregunta = jsonResult.getInt("id_pregunta");
                     String respuesta = jsonResult.getString("respuesta");
                     int id_avatar = jsonResult.getInt("id_avatar");
+                    int puntaje = jsonResult.getInt("puntaje");
                     JSONArray a= jsonResult.getJSONArray("nivel"); //Aqui se sacan los vectores
-                    int nivel = a.length();
-                    Usuario usr = new Usuario(id_usuario, nickname, passwrd, id_pregunta, respuesta, id_avatar, nivel);
+                    ArrayList<String> array = new ArrayList<String>();
+                    for (int i = 0; i < a.length(); i++) {
+                            array.add(a.get(i).toString());
+                        }
+                    Usuario usr = new Usuario(id_usuario, nickname, passwrd, id_pregunta, respuesta, id_avatar,puntaje, array);
                     iniciada.setAttribute("usuario", usr);
 %><jsp:forward page="Inicio.jsp"/>
 <%

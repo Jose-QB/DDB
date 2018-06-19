@@ -14,14 +14,25 @@ import java.awt.Image;
 public class Ejercicio {
     private String palabra;
     private byte[] foto;
+    private int idFoto;
     private int intento;
     private String rf1, rf2;
-    private byte[] ff1, ff2;
+    private int ff1, ff2;
 
     public Ejercicio(String palabra, byte[] foto) {
         this.palabra = palabra;
         this.foto = foto;
         this.intento = 0;
+        this.idFoto  = 0;
+        this.rf1 = "";
+        this.rf2 = "";
+    }
+    
+    public Ejercicio(String palabra, int idFoto) {
+        this.palabra = palabra;
+        this.foto = null;
+        this.intento = 0;
+        this.idFoto  = idFoto;
         this.rf1 = "";
         this.rf2 = "";
     }
@@ -65,20 +76,28 @@ public class Ejercicio {
         return rf2;
     }
 
-    public byte[] getFf1() {
+    public int getFf1() {
         return ff1;
     }
 
-    public void setFf1(byte[] ff1) {
+    public void setFf1(int ff1) {
         this.ff1 = ff1;
     }
 
-    public byte[] getFf2() {
+    public int getFf2() {
         return ff2;
     }
 
-    public void setFf2(byte[] ff2) {
+    public void setFf2(int ff2) {
         this.ff2 = ff2;
+    }
+
+    public int getIdFoto() {
+        return idFoto;
+    }
+
+    public void setIdFoto(int idFoto) {
+        this.idFoto = idFoto;
     }
     
 

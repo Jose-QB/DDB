@@ -194,15 +194,15 @@
                             <div class="row">
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-2">
-                                    <img src="data:image/jpg;base64, <%=javax.xml.bind.DatatypeConverter.printBase64Binary(resp.get(0))%>" class="pad img-responsive imgRespuesta">
+                                    <img src="Imagenes/exer/<%=resp.get(0)%>.jpg" class="pad img-responsive imgRespuesta">
                                 </div>
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-2">
-                                    <img src="data:image/jpg;base64, <%=javax.xml.bind.DatatypeConverter.printBase64Binary(resp.get(1))%>" class="pad img-responsive imgRespuesta">
+                                    <img src="Imagenes/exer/<%=resp.get(1)%>.jpg" class="pad img-responsive imgRespuesta">
                                 </div>
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-2">
-                                    <img src="data:image/jpg;base64, <%=javax.xml.bind.DatatypeConverter.printBase64Binary(resp.get(2))%>" class="pad img-responsive imgRespuesta">
+                                    <img src="Imagenes/exer/<%=resp.get(2)%>.jpg" class="pad img-responsive imgRespuesta">
                                 </div>
                                 <div class="col-sm-2"></div>
                             </div>

@@ -44,7 +44,9 @@
                             console.log(respuesta);
                             // letra + "," + javax.xml.bind.DatatypeConverter.printBase64Binary(img64)
                             document.getElementById("palabra").innerHTML = datos[0];
-                            document.getElementById("imagen").src = "data:image/jpg;base64," + datos[1];
+                            document.getElementById("imagen").src = "Imagenes/exer/" + datos[1] + ".jpg";
+                            alert(document.getElementById("imagen").src);
+                            alert("Imagenes/exer/" + datos[1] + ".jpg");
                             document.getElementById("descripcion").innerHTML = datos[2];
                             //document.getElementById('info-consulta').style.display = 'block';
                         }

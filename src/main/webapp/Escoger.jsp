@@ -105,8 +105,8 @@
                            y de acuerdo a esto bloqueamos o desbloqueamos la unidad a la que 
                            puede ingresar
                                     */
-                        String consulta = "select id_nivel from realizo where id_usuario='" + user.getId_usuario() + "';";
-                        objConn.Consultar(consulta);
+                        /*String consulta = "select id_nivel from realizo where id_usuario='" + user.getId_usuario() + "';";
+                        objConn.Consultar(consulta);*/
                         ArrayList<Integer> nivel = new ArrayList();
                         ArrayList<Integer> u2 = new ArrayList(); // Coleccion de niveles de unidad 
                         ArrayList<Integer> u3 = new ArrayList(); // Coleccion de niveles de unidad 
@@ -128,9 +128,12 @@
                         u6.add(13);
                        // ResultSetMetaData metaData = objConn.rs.getMetaData();
                         //int x = metaData.getColumnCount();
-                        while(objConn.rs.next()){
+                        for (int i = 0; i < user.getNivel().size(); i++) {
+                                nivel.add(Integer.parseInt(user.getNivel().get(i)));
+                            }
+                        /*while(objConn.rs.next()){
                                 nivel.add(objConn.rs.getInt(1));
-                        }
+                        }*/
 
                       %>
                       <div class="col-sm-2"></div>
